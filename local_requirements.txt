@@ -1,0 +1,8 @@
+mysqlclient
+celery[sqs]
+elasticsearch-dbapi
+psycopg2
+pyathena
+pyathenajdbc
+pybigquery
+sqlalchemy-redshift
