@@ -68,12 +68,11 @@ REDIS_HOST = get_env_variable("REDIS_HOST")
 REDIS_PORT = 6379
 REDIS_CELERY_DB = "0"
 REDIS_RESULTS_DB = "1"
-
 RESULTS_BACKEND = FileSystemCache("/app/superset_home/sqllab")
 
-
 class CeleryConfig(object):
-    BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_DB}"
+    BROKER_URL = "sqs://"
+    BROKER_TRANSPORT_OPTIONS = {'region': 'ap-northeast-1'}
     CELERY_IMPORTS = ("superset.sql_lab",)
     CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_RESULTS_DB}"
     CELERYD_LOG_LEVEL = "DEBUG"

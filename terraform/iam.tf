@@ -127,6 +127,7 @@ resource "aws_iam_policy" "get_image_from_ecr" {
 
   tags = {
     Managed = "Terraform"
+    Service = "Superset"
   }
 }
 
@@ -152,6 +153,7 @@ resource "aws_iam_policy" "push_log_to_cloud_watch" {
 
   tags = {
     Managed = "Terraform"
+    Service = "Superset"
   }
 }
 
@@ -164,9 +166,13 @@ resource "aws_iam_policy" "allow_access_sqs" {
       Version = "2012-10-17",
       Statement = [
         {
-          Effect   = "Allow",
-          Action   = "sqs:*",
-          Resource = "${aws_sqs_queue.superset_job_queue.arn}"
+          Effect = "Allow",
+          Action = [
+            "sqs:*"
+          ],
+          Resource = [
+            "arn:aws:sqs:${var.aws_region}:${var.aws_account_id}:*"
+          ]
         }
       ]
     }
@@ -174,5 +180,6 @@ resource "aws_iam_policy" "allow_access_sqs" {
 
   tags = {
     Managed = "Terraform"
+    Service = "Superset"
   }
 }

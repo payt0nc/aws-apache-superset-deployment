@@ -1,5 +1,6 @@
 mysqlclient
 celery[sqs]
+celery[s3]
 elasticsearch-dbapi
 psycopg2
 pyathena
