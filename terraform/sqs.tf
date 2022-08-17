@@ -25,13 +25,6 @@ resource "aws_sqs_queue_policy" "superset_job_queue_policy" {
       "Principal": "*",
       "Action": "sqs:*",
       "Resource": "${aws_sqs_queue.superset_job_queue.id}"
-    },
-    {
-      "Sid": "2",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "sqs:ListQueues",
-      "Resource": "*"
     }
   ]
 }
