@@ -1,44 +1,49 @@
 # aws-apache-superset-deployment
 
+This is a sample for deployment Apache Superset with using AWS managed services like SQS, ElastiCache over ECS.
+
 ## Architecture
 
-![](apache_superset.jpeg)
+![](asset/apache_superset.jpeg)
 
-## Highlighted Environment Varible
+## Added Plug-ins
 
-### Basic
+### Celery
 
-SUPERSET_ROW_LIMIT
-SUPERSET_SECRET_KEY
-SUPERSET_METADATA_DB_URL
+- [DynamoDB](https://docs.celeryq.dev/en/stable/userguide/configuration.html#aws-dynamodb-backend-settings)
 
-### Cache
+- [S3](https://docs.celeryq.dev/en/stable/userguide/configuration.html#s3-backend-settings)
 
-SUPERSET_CACHE_REDIS_HOST
-SUPERSET_CACHE_REDIS_PORT
-SUPERSET_CACHE_REDIS_PASSWORD
-SUPERSET_CACHE_REDIS_DB
-SUPERSET_CACHE_REDIS_URL
+### Database Drivers
 
-### Notification
+- [AWS Athena](https://superset.apache.org/docs/databases/athena/)
 
-#### Slack
+- [Google BigQuery](https://superset.apache.org/docs/databases/bigquery/)
 
-SUPERSET_NOTIFICAITON_SLACK_API_TOKEN
+- [ElasticSearch](https://superset.apache.org/docs/databases/elasticsearch)
 
-#### SMTP
+## Environment Varibles
 
-SUPERSET_NOTIFICATION_SMTP_HOST
-SUPERSET_NOTIFICATION_SMTP_STARTTLS
-SUPERSET_NOTIFICATION_SMTP_SSL
-SUPERSET_NOTIFICATION_SMTP_USER
-SUPERSET_NOTIFICATION_SMTP_PORT
-SUPERSET_NOTIFICATION_SMTP_PASSWORD
-SUPERSET_NOTIFICATION_SMTP_MAIL_FROM
+### Metastore Setting
 
-### Web
+- DATABASE_DIALECT
 
-SUPERSET_ENABLE_CORS
-SUPERSET_WEBDRIVER_BASEURL
-SUPERSET_WEBSERVER_DOMAINS
-SUPERSET_WEBSERVER_PORT
+- DATABASE_USER
+
+- DATABASE_PASSWORD
+
+- DATABASE_HOST
+
+- DATABASE_PORT
+
+- DATABASE_DB
+
+### Redis (for Celery)
+
+- REDIS_HOST
+
+### Superset Setting
+
+- WEBDRIVER_BASEURL
+
+- SUPERSET_SECRET_KEY
