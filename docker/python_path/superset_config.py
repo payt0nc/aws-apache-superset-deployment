@@ -102,32 +102,32 @@ SECRET_KEY = os.environ.get('SUPERSET_SECRET_KEY')
 
 
 DATA_CACHE_CONFIG = {
-    "CACHE_TYPE": "SimpleCache",
+    "CACHE_TYPE": "RedisCache",
     "CACHE_DEFAULT_TIMEOUT": 3600,
     # "CACHE_DEFAULT_TIMEOUT": 86400,  # 60 seconds * 60 minutes * 24 hours
-    # "CACHE_KEY_PREFIX": "superset_results",  # make sure this string is unique to avoid collisions
-    # 'CACHE_REDIS_HOST': os.environ.get('SUPERSET_CACHE_REDIS_HOST'),
-    # 'CACHE_REDIS_PORT': os.environ.get('SUPERSET_CACHE_REDIS_PORT', 6379),
-    # 'CACHE_REDIS_DB': os.environ.get('SUPERSET_CACHE_REDIS_DB', 0)
+    "CACHE_KEY_PREFIX": "superset_results",  # make sure this string is unique to avoid collisions
+    'CACHE_REDIS_HOST': REDIS_HOST,
+    'CACHE_REDIS_PORT': REDIS_PORT,
+    'CACHE_REDIS_DB': REDIS_RESULTS_DB
 }
 
 FILTER_STATE_CACHE_CONFIG = {
-    "CACHE_TYPE": "SimpleCache",
+    "CACHE_TYPE": "RedisCache",
     "CACHE_DEFAULT_TIMEOUT": 3600,
     # "CACHE_DEFAULT_TIMEOUT": 86400,  # 60 seconds * 60 minutes * 24 hours
-    # "CACHE_KEY_PREFIX": "superset_results",  # make sure this string is unique to avoid collisions
-    # 'CACHE_REDIS_HOST': os.environ.get('SUPERSET_CACHE_REDIS_HOST'),
-    # 'CACHE_REDIS_PORT': os.environ.get('SUPERSET_CACHE_REDIS_PORT', 6379),
-    # 'CACHE_REDIS_DB': os.environ.get('SUPERSET_CACHE_REDIS_DB', 1)
+    "CACHE_KEY_PREFIX": "superset_results_filter",  # make sure this string is unique to avoid collisions
+    'CACHE_REDIS_HOST': REDIS_HOST,
+    'CACHE_REDIS_PORT': REDIS_PORT,
+    'CACHE_REDIS_DB': REDIS_RESULTS_DB
 }
 EXPLORE_FORM_DATA_CACHE_CONFIG = {
-    "CACHE_TYPE": "SimpleCache",
+    "CACHE_TYPE": "RedisCache",
     "CACHE_DEFAULT_TIMEOUT": 3600,
     # "CACHE_DEFAULT_TIMEOUT": 86400,  # 60 seconds * 60 minutes * 24 hours
-    # "CACHE_KEY_PREFIX": "superset_results",  # make sure this string is unique to avoid collisions
-    # 'CACHE_REDIS_HOST': os.environ.get('SUPERSET_CACHE_REDIS_HOST'),
-    # 'CACHE_REDIS_PORT': os.environ.get('SUPERSET_CACHE_REDIS_PORT', 6379),
-    # 'CACHE_REDIS_DB': os.environ.get('SUPERSET_CACHE_REDIS_DB', 0)
+    "CACHE_KEY_PREFIX": "superset_results_explorer",  # make sure this string is unique to avoid collisions
+    'CACHE_REDIS_HOST': REDIS_HOST,
+    'CACHE_REDIS_PORT': REDIS_PORT,
+    'CACHE_REDIS_DB': REDIS_RESULTS_DB
 }
 
 

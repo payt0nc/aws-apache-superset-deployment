@@ -1,4 +1,5 @@
 mysqlclient
+celery[dynamodb]
 celery[sqs]
 celery[s3]
 elasticsearch-dbapi

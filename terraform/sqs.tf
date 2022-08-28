@@ -22,7 +22,9 @@ resource "aws_sqs_queue_policy" "superset_job_queue_policy" {
     {
       "Sid": "1",
       "Effect": "Allow",
-      "Principal": "*",
+      "Principal": {
+        "AWS": "${aws_iam_role.superset_instance.arn}"
+      },
       "Action": "sqs:*",
       "Resource": "${aws_sqs_queue.superset_job_queue.id}"
     }
